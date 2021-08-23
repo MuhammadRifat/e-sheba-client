@@ -1,0 +1,16 @@
+.receiveOrder{
+    display: flex;
+}
+
+.receiveOrderRight{
+    flex: 4;
+}
+
+
+
+@media only screen and (max-width: 600px) {
+  .receiveOrder{
+      display: flex;
+      flex-direction: column-reverse;
+  }
+}

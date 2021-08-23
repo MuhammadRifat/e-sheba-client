@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import './NavBar.css';
 import logo from '../../../images/default-monochrome.svg'
 import { userContext } from '../../../App';
-
+import cover from '../../../img/E-Sheba-logo/cover.png';
 const NavBar = () => {
     const [loggedInUser, setLoggedInUser] = useContext(userContext);
 
@@ -14,7 +14,7 @@ const NavBar = () => {
     }
 
     return (
-        <Navbar collapseOnSelect bg="dark" expand="lg">
+        <Navbar collapseOnSelect expand="lg">
             <Navbar.Brand href="#">
                 <img
                     src={logo}
@@ -33,7 +33,7 @@ const NavBar = () => {
                     <Link className="navLink link" to="/dashboard">Dashboard</Link>
                     {
                         loggedInUser.email ?
-                            <>
+                            <div>
                                 <OverlayTrigger
                                     key="bottom"
                                     placement="bottom"
@@ -46,7 +46,7 @@ const NavBar = () => {
                                 >
                                     <Image className="userImage navLink" src={loggedInUser.photo} alt={loggedInUser.name} style={{ width: '40px', height: '40px' }} roundedCircle />
                                 </OverlayTrigger>
-                            </>
+                            </div>
                             :
                             <Link className="navLink link" to="/login">Login</Link>
                     }

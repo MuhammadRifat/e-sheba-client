@@ -6,10 +6,10 @@
 }
 .loginbox{
     width: 350px;
-    height: 430px;
+    height: 480px;
     background: #000;
     color: #fff;
-    top: 65%;
+    top: 58%;
     left: 50%;
     position: absolute;
     transform: translate(-50%,-50%);

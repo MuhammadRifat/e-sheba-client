@@ -15,8 +15,7 @@
   padding: 20px;
 }
 .header-container {
-  height: 600px;
-  text-align: center;
+  height: 625px;
   position: relative;
   background-image: url("../../images/service.jpeg");
   background-position: 100%;

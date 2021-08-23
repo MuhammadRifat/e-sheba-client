@@ -63,7 +63,7 @@ const Services = () => {
                                     Price: ${serviceInfo?.price}
                                 </h2>
                             </div>
-                            <button onClick={() => handleService(id)} className="btn btn-success">Buy now</button>
+                            <button onClick={() => handleService(id)} className="btn btn-success">Book now</button>
                         </div>
                     </div>
                 </div>

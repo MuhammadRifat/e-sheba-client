@@ -1,18 +1,19 @@
-import React, { useEffect, useState } from 'react';
-import './OrderList.css';
+import axios from 'axios';
+import './ReceivedOrder.css';
+import React, { useContext, useEffect, useState } from 'react';
+import { userContext } from '../../../App';
+import SingleOrderCard from '../OrderList/SingleOrderCard/SingleOrderCard';
 import Sidebar from '../Sidebar/Sidebar';
 import TopBarDash from '../TopBarDash/TopBarDash';
-import axios from 'axios';
 import Swal from 'sweetalert2';
-import SingleOrderCard from './SingleOrderCard/SingleOrderCard';
 
-const OrderList = () => {
-    const [orders, setOrders] = useState([]);
+const ReceivedOrder = () => {
+    const [orders, setOrders] = useState([])
+    const [loggedInUser, setLoggedInUser] = useContext(userContext)
     const [ids, setIds] = useState(null);
 
-
     const getAllOrders = () => {
-        axios.get('http://localhost:5000/orders')
+        axios.get(`http://localhost:5000/received-order/${loggedInUser.email}`)
             .then((response) => {
                 if (response.status === 200) {
                     setOrders(response.data)
@@ -61,7 +62,7 @@ const OrderList = () => {
         })
     }
 
-    
+
     // update order status
     const handleUpdateStatus = (id, updatedStatus) => {
         const finalStatus = { status: updatedStatus }
@@ -79,17 +80,16 @@ const OrderList = () => {
                 Swal.fire('Saved!', '', 'success');
             }).catch((err) => console.log(err))
     }
-
-
     return (
         <>
             <TopBarDash />
-            <section className="orderList">
+            <section className="receiveOrder">
                 <Sidebar />
-                <div className="orderListRight">
+                <div className="receiveOrderRight">
                     <div className="d-flex justify-content-around align-items-center flex-wrap">
                         {
-                            orders.map((order) => <SingleOrderCard key={order._id} order={order} handleUpdateStatus={handleUpdateStatus} deleteOrder={deleteOrder} />)
+                            orders.map((order) => <SingleOrderCard key={order._id} order={order}
+                                handleUpdateStatus={handleUpdateStatus} deleteOrder={deleteOrder} />)
                         }
                     </div>
 
@@ -100,4 +100,4 @@ const OrderList = () => {
     );
 };
 
-export default OrderList;
+export default ReceivedOrder;

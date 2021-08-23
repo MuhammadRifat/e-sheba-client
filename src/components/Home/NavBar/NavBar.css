@@ -1,14 +1,13 @@
 .navLink{
     text-decoration: none;
-    color: #fff;
-    padding: 12px 25px;
+    color: rgb(248, 95, 95);
+    padding: 10px 25px;
     font-weight: 600;
-    font-size: 14pt;
+    font-size: 13pt;
 }
 .link:hover{
     text-decoration: none;
-    color: lightgray;
-    background-color: rgb(99, 99, 99);
+    color: rgb(231, 80, 80);
 }
 
 .userImage{

@@ -38,8 +38,7 @@ const Reviews = () => {
     return (
         <section className="testimonial-section">
             <div className="container testimonial-container">
-                <h4 data-aos="fade-right">"TESTIMONIALS"</h4>
-                <h3 data-aos="fade-left">What our clients are Saying</h3>
+            <h3 data-aos="fade-up" class="support-contact">What Client Says About Us</h3>
                 <div className="row">
                     {reviews.length ?
                         <div className="col-md-12">

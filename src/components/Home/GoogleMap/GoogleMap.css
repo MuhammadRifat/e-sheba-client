@@ -1,4 +1,6 @@
-
+.map-container{
+    background: #beb5b517;
+}
 .google-map{
     width:100%;
     height:450px;

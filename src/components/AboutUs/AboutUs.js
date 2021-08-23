@@ -75,17 +75,19 @@ const developers = [
 const AboutUs = () => {
     return (
         <>
-            <NavBar />
             <section>
-                <main className="header-container d-flex flex-column justify-content-around">
-                    <div>
-                        <h1>WELCOME TO E-SHEBA</h1>
-                        <h1>THE <span className="fw-bold">BEST</span > SERVICE <span className="fw-bold">EXPERTS</span> AND</h1>
-                        <h1><span className="fw-bold">QUALIFIED</span> STAFF</h1>
-                    </div>
-                    <div>
-                        <h3 className="text-white pt-5 pb-2">E-Sheba is a new on-demand service platform <br /> that connects households and businesses with <br /> the best service providers, comes in.</h3>
-                        <button className="btn btn-danger">CONTACT NOW</button>
+                <main className="header-container">
+                    <NavBar />
+                    <div className="text-center d-flex flex-column justify-content-around">
+                        <div>
+                            <h1>WELCOME TO E-SHEBA</h1>
+                            <h1>THE <span className="fw-bold">BEST</span > SERVICE <span className="fw-bold">EXPERTS</span> AND</h1>
+                            <h1><span className="fw-bold">QUALIFIED</span> STAFF</h1>
+                        </div>
+                        <div>
+                            <h3 className="text-white pt-5 pb-2">E-Sheba is a new on-demand service platform <br /> that connects households and businesses with <br /> the best service providers, comes in.</h3>
+                            <button className="btn btn-danger">CONTACT NOW</button>
+                        </div>
                     </div>
                 </main>
                 <div className="container">
