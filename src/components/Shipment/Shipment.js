@@ -7,13 +7,13 @@ import NavBar from '../Home/NavBar/NavBar';
 import ProcessPayment from '../Payment/ProcessPayment';
 
 const Shipment = () => {
-  const { register, handleSubmit, formState: { errors } } = useForm();
-  const [loggedInUser] = useContext(userContext);
+  const { register, handleSubmit, watch, formState: { errors } } = useForm();
+  const [loggedInUser, setLoggedInUser] = useContext(userContext);
   const { id } = useParams();
   const [service, setService] = useState({});
-  const { serviceName, price, serviceDetails, serviceImage, serviceProviderEmail } = service;
+  const { serviceName, price, serviceDetails, image, serviceProviderEmail } = service;
   const [shippingData, setShippingData] = useState(null);
-  const [status] = useState('pending');
+  const [status, setStaus] = useState('pending');
 
   const onSubmit = data => {
     setShippingData(data);
@@ -25,11 +25,7 @@ const Shipment = () => {
       serviceName,
       price,
       serviceDetails,
-<<<<<<< HEAD
-      serviceImage,
-=======
-      serviceImage: image,
->>>>>>> main
+      image,
       serviceProviderEmail,
       paymentId,
       shipment: shippingData,
@@ -44,11 +40,10 @@ const Shipment = () => {
       },
       body: JSON.stringify(orderDetails)
     })
-      .then((res) => res.json())
+      .then(res => res.json())
       .then(data => {
         if (data) {
           alert('Your order placed successfully')
-          console.log(data, 'order')
         }
       })
   }
