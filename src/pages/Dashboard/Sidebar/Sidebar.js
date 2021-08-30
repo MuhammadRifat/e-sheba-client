@@ -46,7 +46,7 @@ const Sidebar = () => {
 
                                 <Link to="/orderList" className="sidebarListItem link">
                                     <MailOutline className="sidebarIcon" />
-                                   All Orders
+                                    All Orders
                                 </Link>
                                 <Link to="/makeAdmin" className="sidebarListItem link">
                                     <PersonAdd className="sidebarIcon" />
@@ -62,13 +62,13 @@ const Sidebar = () => {
                                 </Link>
                                 <Link to="/unverifiedProviderList" className="sidebarListItem link">
                                     <RateReview className="sidebarIcon" />
-                                    Unverified Provider List
+                                    Unverified Providers
                                 </Link>
                             </ul>
                         </>
                     }
 
-                    {loggedInUser.role === 'service-provider' &&
+                    {(loggedInUser.role === 'service-provider') &&
                         <>
                             <h3 className="sidebarTitle">Service Provider Panel</h3>
                             <ul className="sidebarList">

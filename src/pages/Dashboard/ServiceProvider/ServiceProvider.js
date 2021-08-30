@@ -25,8 +25,10 @@ const ServiceProvider = () => {
     const [serviceProviders, setServiceProviders] = useState([]);
     const [ids, setIds] = useState(null);
 
+    // https://e-sheba.herokuapp.com/loadAll/service-provider
+
     useEffect(() => {
-        fetch('https://e-sheba.herokuapp.com/loadAll/service-provider')
+        fetch('http://localhost:5000/loadAll/service-provider')
             .then(res => res.json())
             .then(data => setServiceProviders(data))
     }, [])
@@ -82,6 +84,7 @@ const ServiceProvider = () => {
                                     <TableCell className="tableHeadBold" align="left">Service Provider Name</TableCell>
                                     <TableCell className="tableHeadBold" align="left">Service Provider Email</TableCell>
                                     <TableCell className="tableHeadBold" align="left">Role</TableCell>
+                                    <TableCell className="tableHeadBold" align="left">Is Verified</TableCell>
                                     <TableCell className="tableHeadBold" align="left">Action</TableCell>
                                 </TableRow>
                             </TableHead>
@@ -94,6 +97,7 @@ const ServiceProvider = () => {
                                         </TableCell>
                                         <TableCell align="left">{serviceProvider.email}</TableCell>
                                         <TableCell align="left">{serviceProvider.role}</TableCell>
+                                        <TableCell align="left">{serviceProvider.isVerified}</TableCell>
                                         <TableCell align="left"><DeleteOutlineIcon onClick={() => deleteService(serviceProvider._id)} className="deleteServiceProviderIcon" /></TableCell>
                                     </TableRow>
                                 ))}

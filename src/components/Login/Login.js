@@ -7,6 +7,7 @@ import firebaseConfig from './firebase.config';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGoogle } from '@fortawesome/free-brands-svg-icons'
 import NavBar from '../Home/NavBar/NavBar';
+import Footer from '../Footer/Footer';
 import { useHistory, useLocation } from 'react-router-dom';
 import { useContext } from 'react';
 import { userContext } from '../../App';
@@ -37,33 +38,20 @@ const Login = () => {
     const { from } = location.state || { from: { pathname: "/" } };
 
     const provider = new firebase.auth.GoogleAuthProvider();
-
     const handleGoogleSignIn = () => {
         firebase.auth().signInWithPopup(provider)
             .then(res => {
                 const { displayName, email, photoURL } = res.user;
-                if (user.role === "service-provider") {
-                    const signedInUser = {
-                        isSignedIn: true,
-                        name: displayName,
-                        email: email,
-                        photo: photoURL,
-                        role: user.role,
-                        isVerified: 'no'
-                    }
-                    checkRole(signedInUser);
-                    setUser(signedInUser);
-                } else {
-                    const signedInUser = {
-                        isSignedIn: true,
-                        name: displayName,
-                        email: email,
-                        photo: photoURL,
-                        role: user.role,
-                    }
-                    checkRole(signedInUser);
-                    setUser(signedInUser);
+                const signedInUser = {
+                    isSignedIn: true,
+                    name: displayName,
+                    email: email,
+                    photo: photoURL,
+                    role: user.role,
+                    isVerified: 'no'
                 }
+                setUser(signedInUser);
+                checkRole(signedInUser);
             })
             .catch(error => {
                 console.log(error);
@@ -85,7 +73,7 @@ const Login = () => {
                         // Add Data to sessionStorage
                         sessionStorage.setItem('user', JSON.stringify(signedInUser))
                         history.replace(from);
-
+                        
                     } else {
                         Swal.fire({
                             icon: 'error',
@@ -145,6 +133,7 @@ const Login = () => {
     }
 
     const handleSubmit = (e) => {
+        console.log(user);
         if (!newUser && user.email && user.password) {
             setSpinner(true);
             handleLogIn(user.email, user.password)
@@ -163,7 +152,7 @@ const Login = () => {
                         const userDetail = { ...user };
                         userDetail.error = "";
                         setUser(userDetail);
-
+                        
 
                     }
 

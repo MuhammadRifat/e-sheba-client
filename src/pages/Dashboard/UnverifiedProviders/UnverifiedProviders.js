@@ -1,12 +1,13 @@
-import { TableContainer, Table, TableBody, TableCell, TableHead, TableRow, Paper, Button } from '@material-ui/core';
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import './UnverifiedProviders.css';
 import Sidebar from '../Sidebar/Sidebar';
 import TopBarDash from '../TopBarDash/TopBarDash';
-import './UnverifiedProviders.css';
 
 import { makeStyles } from '@material-ui/core/styles';
+import { TableContainer, Table, TableBody, TableCell, TableHead, TableRow, Paper, Button } from '@material-ui/core';
 import DeleteOutlineIcon from "@material-ui/icons/DeleteOutline";
 import CheckCircleIcon from '@material-ui/icons/CheckCircle';
+import Swal from 'sweetalert2';
 
 const useStyles = makeStyles({
     table: {
@@ -16,8 +17,33 @@ const useStyles = makeStyles({
 
 
 const UnverifiedProviders = () => {
-
+    const [providers, setProviders] = useState([])
     const classes = useStyles();
+
+    // fetch data...
+    useEffect(() => {
+        fetch('http://localhost:5000/unverified-provider/service-provider')
+            .then(res => res.json())
+            .then(data => setProviders(data))
+    }, [providers])
+
+    // update verified
+    const handleUpdatedVerified = (id) => {
+        const finalVerified = { isVerified: "yes" };
+        fetch(`http://localhost:5000/updateVerified/${id}`, {
+            method: 'PATCH',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(finalVerified)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log('update done', data);
+                Swal.fire('Saved!', '', 'success');
+            }).catch((err) => console.log(err))
+    }
+
 
     return (
         <>
@@ -36,17 +62,27 @@ const UnverifiedProviders = () => {
                                 </TableRow>
                             </TableHead>
                             <TableBody>
-                                <TableRow >
-                                    <TableCell component="th" scope="row">
-                                        1
-                                    </TableCell>
-                                    <TableCell align="left">Osama</TableCell>
-                                    <TableCell align="left">osama@gmail.com</TableCell>
-                                    <TableCell align="center">
-                                        <Button><CheckCircleIcon className="approveUnverifiedIcon" /></Button>
-                                        <Button><DeleteOutlineIcon className="deleteUnverifiedIcon" /></Button>
-                                    </TableCell>
-                                </TableRow>
+                                {providers.map((provider, index) => (
+
+                                    <TableRow key={provider._id}>
+                                        <TableCell component="th" scope="row">
+                                            {index + 1}
+                                        </TableCell>
+                                        <TableCell align="left">
+                                            <img className="providerImg" src={provider.photo} alt="" />
+                                            {provider.name}
+                                        </TableCell>
+                                        <TableCell align="left">{provider.email}</TableCell>
+                                        <TableCell align="center">
+                                            <Button>
+                                                <DeleteOutlineIcon className="deleteUnverifiedIcon" />
+                                            </Button>
+                                            <Button onClick={() => handleUpdatedVerified(provider._id)}>
+                                                <CheckCircleIcon className="approveUnverifiedIcon" />
+                                            </Button>
+                                        </TableCell>
+                                    </TableRow>
+                                ))}
                             </TableBody>
                         </Table>
                     </TableContainer>

@@ -137,7 +137,7 @@ function App() {
 
               <PrivateRoute
                 path="/addService"
-                exact component={() => ((loggedInUser?.role === "service-provider" || loggedInUser?.role === "admin")
+                exact component={() => (((loggedInUser?.role === "service-provider") || loggedInUser?.role === "admin")
                   ? <AddService />
                   : <Redirect to="/dashboard" />)}
               />
