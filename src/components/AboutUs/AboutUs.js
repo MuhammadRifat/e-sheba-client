@@ -79,25 +79,25 @@ const AboutUs = () => {
                 <main className="header-container">
                     <NavBar />
                     <div className="text-center d-flex flex-column justify-content-around">
-                        <div>
-                            <h1>WELCOME TO E-SHEBA</h1>
-                            <h1>THE <span className="fw-bold">BEST</span > SERVICE <span className="fw-bold">EXPERTS</span> AND</h1>
+                        <div data-aos="fade-up">
+                            <h1 className="about-title">WELCOME TO E-SHEBA</h1>
+                            <h1>THE <span className="fw-bold">BEST</span> SERVICE <span className="fw-bold">EXPERTS</span> AND</h1>
                             <h1><span className="fw-bold">QUALIFIED</span> STAFF</h1>
                         </div>
                         <div>
-                            <h3 className="text-white pt-5 pb-2">E-Sheba is a new on-demand service platform <br /> that connects households and businesses with <br /> the best service providers, comes in.</h3>
-                            <button className="btn btn-danger">CONTACT NOW</button>
+                            <h3 className=" about-second-title pt-5 pb-2">E-Sheba is a new on-demand service platform <br /> that connects households and businesses with <br /> the best service providers, comes in.</h3>
+                            <button data-aos="fade-right" className="btn btn-danger">CONTACT NOW</button>
                         </div>
                     </div>
                 </main>
                 <div className="container">
-                    <h3 className="mt-5 mb-4 fw-bold">CORE COMPETENCIES</h3>
+                    <h3 data-aos="fade-up" className="mt-5 mb-4 fw-bold">CORE COMPETENCIES</h3>
                     <p>We offer full spectrum of services to help organizations function more effectively. Some of our services are highlighted below:</p>
-                    <div className="row row-cols-2 row-cols-md-6 mt-5">
+                    <div data-aos="fade-up" className="row row-cols-2 row-cols-md-6 mt-5">
                         {competencies.map(competence => <Competencies competence={competence}></Competencies>)}
                     </div>
                 </div>
-                <div className="clients">
+                <div data-aos="fade-up" className="clients">
                     <div className="container d-flex justify-content-around flex-wrap">
                         <div className="d-flex align-items-center">
                             <FontAwesomeIcon icon={faSmile} className="fa-3x" style={{ color: 'orange' }}></FontAwesomeIcon>
@@ -129,17 +129,17 @@ const AboutUs = () => {
                         </div>
                     </div>
                 </div>
-                <div className="container">
+                <div data-aos="fade-right" className="container">
                     <h3 className="mt-5 mb-4 fw-bold">OUR TEAM</h3>
                     <p>We are Proud to have a Team of Dedicated Developers with varying interests and background. Please read through their profiles to learn more.</p>
                     <div className="row row-cols-1 row-cols-md-6 p-3">
                         {developers.map(developer => <Developers developer={developer}></Developers>)}
                     </div>
                 </div>
-                <div className="container">
+                <div data-aos="fade-up" className="container">
                     <h3 className="mt-5 mb-4 fw-bold">Recognition And Awards</h3>
                     <p>We’re honored to be recognized for quality of service, safety and security. Some of the awards we’ve received include:</p>
-                    <div className="row row-cols-1 row-cols-md-4 text-center pt-4">
+                    <div data-aos="fade-up" className="row row-cols-1 row-cols-md-4 text-center pt-4">
                         <div class="card awards">
                             <img src={Award1} class="card-img-top" alt="image8" />
                             <p class="card-body">Excellence In Customer Service</p>
@@ -159,9 +159,9 @@ const AboutUs = () => {
                     </div>
                 </div>
                 <div className="container mb-5">
-                    <h3 className="mt-5 mb-4 fw-bold">Our partners</h3>
+                    <h3 data-aos="fade-right" className="mt-5 mb-4 fw-bold">Our partners</h3>
                     <p>These companies are our lifelong partners whose efforts support our goals.</p>
-                    <div className="row pt-4">
+                    <div data-aos="fade-up" className="row pt-4">
                         <div className="col-md-2 col-6 effect">
                             <img src="https://i.ibb.co/v4nkQtv/logo-coca-cola.png" alt="image1" />
                         </div>

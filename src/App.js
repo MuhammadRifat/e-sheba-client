@@ -31,6 +31,7 @@ import Shipment from './components/Shipment/Shipment';
 import Contact from './components/Contact/Contact';
 import OwnOrderList from './pages/Dashboard/OwnOrderList/OwnOrderList';
 import ReceivedOrder from './pages/Dashboard/ReceivedOrder/ReceivedOrder';
+import UnverifiedProviders from './pages/Dashboard/UnverifiedProviders/UnverifiedProviders';
 
 export const userContext = createContext();
 
@@ -172,6 +173,13 @@ function App() {
                 path="/orderList"
                 exact component={() => ((loggedInUser?.role === "admin")
                   ? <OrderList />
+                  : <Redirect to="/dashboard" />)}
+              />
+
+              <PrivateRoute
+                path="/unverifiedProviderList"
+                exact component={() => ((loggedInUser?.role === "admin")
+                  ? <UnverifiedProviders />
                   : <Redirect to="/dashboard" />)}
               />
 

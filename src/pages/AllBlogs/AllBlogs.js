@@ -21,7 +21,9 @@ const AllBlogs = () => {
     }, [])
     return (
         <>
-            <NavBar />
+            <div className="nav-color">
+                <NavBar />
+            </div>
             {(skeletonTimer) ?
 
                 <div className="row m-5">

@@ -1,0 +1,15 @@
+.unverifiedProviders {
+  display: flex;
+}
+
+.unverifiedProvidersRight {
+  flex: 4;
+}
+
+.approveUnverifiedIcon {
+  color: green;
+}
+
+.deleteUnverifiedIcon {
+  color: red;
+}

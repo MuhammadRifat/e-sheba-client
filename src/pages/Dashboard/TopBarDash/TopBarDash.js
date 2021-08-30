@@ -18,7 +18,7 @@ const TopBarDash = () => {
                     <span className="topDashLogo">{loggedInUser.name}</span>
                 </div>
                 <div className="topRight">
-                    <img src={loggedInUser?.photo} alt="avatar" className="topAvatar" />
+                    <img src={loggedInUser.photo} alt="avatar" className="topAvatar" />
                     <Tooltip className="topbarIconContainer" TransitionComponent={Zoom} title="Log out!">
                         <ExitToApp onClick={handleLogOut} />
                     </Tooltip>

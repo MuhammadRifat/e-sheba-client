@@ -60,6 +60,10 @@ const Sidebar = () => {
                                     <RateReview className="sidebarIcon" />
                                     All Reviews
                                 </Link>
+                                <Link to="/unverifiedProviderList" className="sidebarListItem link">
+                                    <RateReview className="sidebarIcon" />
+                                    Unverified Provider List
+                                </Link>
                             </ul>
                         </>
                     }

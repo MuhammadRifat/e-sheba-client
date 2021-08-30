@@ -31,22 +31,26 @@ const AllServices = () => {
     }, [])
     return (
         <>
+           
+            <div className="all-header">
             <NavBar />
-            {(allServices.length) ?
-                <div className="row mx-3 mb-5 mt-3">
-                    {
-                        allServices.map(feature => <SingleService feature={feature}></SingleService>)
-                    }
-                </div> :
-                <div className="row m-5">
-                    {[1, 2, 3, 4, 5, 6].map((loading) => (
-                        <div className="col-md-4 mt-3">
-                            <ServiceSkeleton />
-                        </div>
-                    ))}
-                </div>
-            }
-            <Footer />
+                {(allServices.length) ?
+                    <div className="row mx-3 mb-5 mt-3">
+                        {
+                            allServices.map(feature => <SingleService feature={feature}></SingleService>)
+                        }
+                    </div> :
+                    <div className="row m-5">
+                        {[1, 2, 3, 4, 5, 6].map((loading) => (
+                            <div className="col-md-4 mt-3">
+                                <ServiceSkeleton />
+                            </div>
+                        ))}
+                    </div>
+                }
+                    <Footer />
+            </div>
+        
         </>
     );
 };

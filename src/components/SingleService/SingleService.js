@@ -9,7 +9,7 @@ const SingleService = (props) => {
   const { _id, serviceName, serviceImage, price, serviceProviderImage, serviceProviderName } = props.feature;
 
   return (
-    <div className="col-md-4 mt-3 container" style={{maxWidth: '400px'}}>
+    <div className="col-md-3 col-sm-2 mt-3 container" style={{maxWidth: '400px'}}>
       <Link to={`/services/${_id}`} style={{ textDecoration: 'none' }}>
         <div className="card img-card">
           <img src={serviceImage} className="card-img-top singleServiceImage" alt="..."/>

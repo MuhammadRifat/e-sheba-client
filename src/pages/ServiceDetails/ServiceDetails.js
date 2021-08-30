@@ -26,52 +26,58 @@ const Services = () => {
     useEffect(() => {
         getService();
     }, [id])
-
+    console.log(serviceInfo)
     const handleService = (id) => {
         history.push(`/shipment/${id}`)
     }
 
     return (
         <>
-            <NavBar />
-            {(serviceInfo.serviceName) ?
-                <div className="service-details-container">
-                    <div className="service-content-div">
-                        <img
-                            src={serviceInfo?.serviceImage} alt=""
-                            data-aos="fade-left"
-                            data-aos-duration="1000"
-                        />
-                        <div
-                            className="service-details-div"
-                        >
-                            <div>
-                                <h2
-                                    data-aos="fade-down"
-                                    data-aos-duration="1000">
-                                    {serviceInfo?.serviceName}
-                                </h2>
-                                <h6
-                                    className="text-justify"
-                                    data-aos="fade-up"
-                                    data-aos-duration="1000">
-                                    {serviceInfo?.serviceDetails}
-                                </h6>
-                                <h2
-                                    data-aos="fade-up"
-                                    data-aos-duration="1000">
-                                    Price: ${serviceInfo?.price}
-                                </h2>
+            <div className="nav-color">
+                <NavBar />
+            </div>
+            <div className="all-ser">
+
+                {(serviceInfo.serviceName) ?
+                    <div className="service-details-container">
+                        <div className="service-content-div">
+                            <img
+                                src={serviceInfo?.serviceImage} alt=""
+                                data-aos="fade-left"
+                                data-aos-duration="1000"
+                            />
+                            <div
+                                className="service-details-div"
+                            >
+                                <div>
+                                    <h2
+                                        data-aos="fade-down"
+                                        data-aos-duration="1000">
+                                        {serviceInfo?.serviceName}
+                                    </h2>
+                                    <h6
+                                        className="text-justify"
+                                        data-aos="fade-up"
+                                        data-aos-duration="1000">
+                                        {serviceInfo?.serviceDetails}
+                                    </h6>
+                                    <h2
+                                        data-aos="fade-up"
+                                        data-aos-duration="1000">
+                                        Price: ${serviceInfo?.price}
+                                    </h2>
+                                </div>
+                                <button onClick={() => handleService(id)} className="btn btn-success">Book now</button>
                             </div>
-                            <button onClick={() => handleService(id)} className="btn btn-success">Book now</button>
                         </div>
                     </div>
-                </div>
-                :
-                <DetailsSkeleton />
+                    :
+                    <DetailsSkeleton />
 
-            }
-            <Footer />
+                }
+                <Footer />
+            </div>
+
         </>
     );
 };

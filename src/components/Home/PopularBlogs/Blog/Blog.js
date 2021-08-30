@@ -29,6 +29,7 @@ const Blog = ({ blog: { id, image, blogTitle, blogDescription } }) => {
     }
 
     return (
+        
         <div className="card blog-container" style={cardStyle} data-aos="zoom-in" data-aos-duration={500 * `${id}`}>
             <img src={image} className="card-img-top blog-image" alt={id} />
             <div className="card-body">

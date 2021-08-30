@@ -20,7 +20,7 @@ const Header = () => {
                     <div className="w-100 text-white text-center" style={{ height: 600 }}>
                         <Row className="justify-content-center align-items-center">
                             <Col md={6}>
-                                <h1 style={{ fontSize: "44pt" }}><span style={{ color: 'cyan' }}>Strike</span> up a <br />conversation on <br />live <span style={{ color: 'goldenrod' }}>chat</span></h1>
+                                <h3 style={{ fontSize: "40pt" }}><span style={{ color: 'cyan' }}>Strike</span> up a <br />conversation on <br />live <span style={{ color: 'goldenrod' }}>chat</span></h3>
                             </Col>
 
                             <Col md={6}>

@@ -14,16 +14,19 @@ const NavBar = () => {
 
     return (
         <Navbar collapseOnSelect expand="lg">
-            <Navbar.Brand href="#">
-                <img
-                    src={logo}
-                    className="d-inline-block align-top w-50 ms-4"
-                    alt="logo"
-                />
-            </Navbar.Brand>
+            <Link to="/home">
+                <Navbar.Brand>
+                    <img
+                        src={logo}
+                        className="d-inline-block align-top w-50 ms-4"
+                        alt="logo"
+                    />
+                </Navbar.Brand>
+            </Link>
+
             <Navbar.Toggle variant="lg" aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
-                <Nav className="ms-auto me-5">
+                <Nav className="ms-auto text-center me-5">
 
                     <Link className="navLink link" to="/">Home </Link>
                     <Link className="navLink link" to="/services">Services </Link>

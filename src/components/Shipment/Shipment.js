@@ -56,8 +56,9 @@ const Shipment = () => {
   }, [id])
 
   return (
-    <>
+    <> <div className="nav-color">
       <NavBar />
+    </div>
       <div class="container col-md-7 col-lg-8 py-5">
         <div className="row">
           <div style={{ display: shippingData ? 'none' : 'block' }}>
@@ -82,7 +83,7 @@ const Shipment = () => {
 
                   <div class="col-12 pt-2">
                     <label for="email" class="form-label">Email <span class="text-muted">(Optional)</span></label>
-                    <input type="email" name="consumerEmail" defaultValue={loggedInUser.email} {...register('consumerEmail', { required: true })} class="form-control" id="consumerEmail"/>
+                    <input type="email" name="consumerEmail" defaultValue={loggedInUser.email} {...register('consumerEmail', { required: true })} class="form-control" id="consumerEmail" />
                     <div class="invalid-feedback">
                       Please enter a valid email address for shipping updates.
                     </div>

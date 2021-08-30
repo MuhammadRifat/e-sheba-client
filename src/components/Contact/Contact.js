@@ -15,9 +15,10 @@ const Contact = () => {
                     <div class="collapse navbar-collapse justify-content-center" id="navbarNavAltMarkup">
                         <div class="navbar-nav text-center ">
                             <Link class="nav-link" aria-current="page" to="/">Home</Link>
-                            <Link class="nav-link" to="/">Services</Link>
-                            <Link class="nav-link" to="/">About Us</Link>
-                            <Link class="nav-link" to="/">FAQ's</Link>
+                            <Link class="nav-link" to="/service">Services</Link>
+                            <Link class="nav-link" to="/about">About Us</Link>
+                            <Link class="nav-link" to="/faq">FAQ's</Link>
+                            <Link class="nav-link" to="/login">login</Link>
                         </div>
                     </div>
                 </div>
