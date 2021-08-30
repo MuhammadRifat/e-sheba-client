@@ -47,7 +47,8 @@ const Login = () => {
                     name: displayName,
                     email: email,
                     photo: photoURL,
-                    role: user.role
+                    role: user.role,
+                    isVerified: 'no'
                 }
                 setUser(signedInUser);
                 checkRole(signedInUser);
@@ -68,7 +69,7 @@ const Login = () => {
                 .then(res => res.json())
                 .then(data => {
                     if (data) {
-                        setLoggedInUser(signedInUser);
+                        setLoggedInUser(data);
                         // Add Data to sessionStorage
                         sessionStorage.setItem('user', JSON.stringify(signedInUser))
                         history.replace(from);
@@ -132,13 +133,15 @@ const Login = () => {
     }
 
     const handleSubmit = (e) => {
-        console.log(user);
         if (!newUser && user.email && user.password) {
             setSpinner(true);
             handleLogIn(user.email, user.password)
                 .then(res => {
                     if (res.email) {
                         handleLogInUser(res, true);
+                    } else{
+                        alert("Email or Password is Incorrect!");
+                        setSpinner(false);
                     }
                 })
         }
@@ -151,8 +154,7 @@ const Login = () => {
                         const userDetail = { ...user };
                         userDetail.error = "";
                         setUser(userDetail);
-                        
-
+                        alert("Sign up successful!");
                     }
 
                 })
@@ -167,7 +169,8 @@ const Login = () => {
             name: res.displayName || user.name,
             email: res.email,
             photo: res.photoURL || "https://i.ibb.co/CzkSST0/avater.png",
-            role: user.role
+            role: user.role,
+            isVerified: 'no'
         }
         setSpinner(false);
         isReplace && checkRole(signedInUser);
