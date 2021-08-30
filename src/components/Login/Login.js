@@ -22,7 +22,7 @@ if (!firebase.apps.length) {
 }
 
 const Login = () => {
-    const [ setLoggedInUser] = useContext(userContext);
+    const [ loggedInUser, setLoggedInUser] = useContext(userContext);
     const [newUser, setNewUser] = useState(false);
     const [spinner, setSpinner] = useState(false);
     const [user, setUser] = useState({
