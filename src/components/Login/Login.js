@@ -71,7 +71,7 @@ const Login = () => {
                     if (data) {
                         setLoggedInUser(data);
                         // Add Data to sessionStorage
-                        sessionStorage.setItem('user', JSON.stringify(signedInUser))
+                        sessionStorage.setItem('user', JSON.stringify(data));
                         history.replace(from);
                         
                     } else {
@@ -182,6 +182,7 @@ const Login = () => {
         setUser(userData);
     }
 
+    console.log(loggedInUser);
     return (
         <>
             <section className="section-header">
