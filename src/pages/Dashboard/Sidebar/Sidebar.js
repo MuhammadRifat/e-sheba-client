@@ -68,7 +68,7 @@ const Sidebar = () => {
                         </>
                     }
 
-                    {(loggedInUser.role === 'service-provider') &&
+                    {(loggedInUser.role === 'service-provider' && loggedInUser?.isVerified === 'yes') &&
                         <>
                             <h3 className="sidebarTitle">Service Provider Panel</h3>
                             <ul className="sidebarList">
@@ -79,6 +79,22 @@ const Sidebar = () => {
                                 <Link to="/addService" className="sidebarListItem link">
                                     <AddShoppingCart className="sidebarIcon" />
                                     Add Services
+                                </Link>
+                                <Link to="/receivedOrder" className="sidebarListItem link">
+                                    <MailOutline className="sidebarIcon" />
+                                    Received Orders
+                                </Link>
+                            </ul>
+                        </>
+                    }
+
+                    {(loggedInUser.role === 'service-provider' && loggedInUser?.isVerified === 'no') &&
+                        <>
+                            <h3 className="sidebarTitle">Service Provider Panel</h3>
+                            <ul className="sidebarList">
+                                <Link to="/providerOwnServices" className="sidebarListItem link ">
+                                    <Redeem className="sidebarIcon" />
+                                    My Services
                                 </Link>
                                 <Link to="/receivedOrder" className="sidebarListItem link">
                                     <MailOutline className="sidebarIcon" />

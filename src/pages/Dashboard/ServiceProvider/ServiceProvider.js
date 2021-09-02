@@ -28,7 +28,7 @@ const ServiceProvider = () => {
     // https://e-sheba.herokuapp.com/loadAll/service-provider
 
     useEffect(() => {
-        fetch('http://localhost:5000/loadAll/service-provider')
+        fetch('https://e-sheba.herokuapp.com/loadAll/service-provider')
             .then(res => res.json())
             .then(data => setServiceProviders(data))
     }, [])

@@ -22,7 +22,7 @@ const UnverifiedProviders = () => {
 
     // fetch data...
     useEffect(() => {
-        fetch('http://localhost:5000/unverified-provider/service-provider')
+        fetch('https://e-sheba.herokuapp.com/unverified-provider/service-provider')
             .then(res => res.json())
             .then(data => setProviders(data))
     }, [providers])
@@ -30,7 +30,7 @@ const UnverifiedProviders = () => {
     // update verified
     const handleUpdatedVerified = (id) => {
         const finalVerified = { isVerified: "yes" };
-        fetch(`http://localhost:5000/updateVerified/${id}`, {
+        fetch(`https://e-sheba.herokuapp.com/updateVerified/${id}`, {
             method: 'PATCH',
             headers: {
                 'content-type': 'application/json'
