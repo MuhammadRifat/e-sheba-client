@@ -46,7 +46,7 @@ const Sidebar = () => {
 
                                 <Link to="/orderList" className="sidebarListItem link">
                                     <MailOutline className="sidebarIcon" />
-                                   All Orders
+                                    All Orders
                                 </Link>
                                 <Link to="/makeAdmin" className="sidebarListItem link">
                                     <PersonAdd className="sidebarIcon" />
@@ -60,11 +60,15 @@ const Sidebar = () => {
                                     <RateReview className="sidebarIcon" />
                                     All Reviews
                                 </Link>
+                                <Link to="/unverifiedProviderList" className="sidebarListItem link">
+                                    <RateReview className="sidebarIcon" />
+                                    Unverified Providers
+                                </Link>
                             </ul>
                         </>
                     }
 
-                    {loggedInUser.role === 'service-provider' &&
+                    {(loggedInUser.role === 'service-provider' && loggedInUser?.isVerified === 'yes') &&
                         <>
                             <h3 className="sidebarTitle">Service Provider Panel</h3>
                             <ul className="sidebarList">
@@ -75,6 +79,22 @@ const Sidebar = () => {
                                 <Link to="/addService" className="sidebarListItem link">
                                     <AddShoppingCart className="sidebarIcon" />
                                     Add Services
+                                </Link>
+                                <Link to="/receivedOrder" className="sidebarListItem link">
+                                    <MailOutline className="sidebarIcon" />
+                                    Received Orders
+                                </Link>
+                            </ul>
+                        </>
+                    }
+
+                    {(loggedInUser.role === 'service-provider' && loggedInUser?.isVerified === 'no') &&
+                        <>
+                            <h3 className="sidebarTitle">Service Provider Panel</h3>
+                            <ul className="sidebarList">
+                                <Link to="/providerOwnServices" className="sidebarListItem link ">
+                                    <Redeem className="sidebarIcon" />
+                                    My Services
                                 </Link>
                                 <Link to="/receivedOrder" className="sidebarListItem link">
                                     <MailOutline className="sidebarIcon" />

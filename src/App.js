@@ -31,6 +31,7 @@ import Shipment from './components/Shipment/Shipment';
 import Contact from './components/Contact/Contact';
 import OwnOrderList from './pages/Dashboard/OwnOrderList/OwnOrderList';
 import ReceivedOrder from './pages/Dashboard/ReceivedOrder/ReceivedOrder';
+import UnverifiedProviders from './pages/Dashboard/UnverifiedProviders/UnverifiedProviders';
 
 export const userContext = createContext();
 
@@ -40,7 +41,6 @@ function App() {
   const [loggedInUser, setLoggedInUser] = useState({});
   const [isLoading, setIsLoading] = useState(true);
 
-
   useEffect(() => {
     const USER = JSON.parse(sessionStorage.getItem('user'));
     if (USER) {
@@ -49,12 +49,21 @@ function App() {
     console.log(USER)
   }, [loggedInUser.role])
 
+
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsLoading(false)
     }, 2000);
     return () => clearTimeout(timer);
   }, []);
+
+  useEffect(() => {
+    if (loggedInUser?.role === 'service-provider') {
+      fetch(`https://e-sheba.herokuapp.com/provider-details/${loggedInUser.email}`)
+        .then(res => res.json())
+        .then((data) => setLoggedInUser(data[0]))
+    }
+  }, [loggedInUser.email])
 
   const gifStyle = {
     width: "100vw",
@@ -136,7 +145,7 @@ function App() {
 
               <PrivateRoute
                 path="/addService"
-                exact component={() => ((loggedInUser?.role === "service-provider" || loggedInUser?.role === "admin")
+                exact component={() => (((loggedInUser?.role === "service-provider" && loggedInUser.isVerified === 'yes') || loggedInUser?.role === "admin")
                   ? <AddService />
                   : <Redirect to="/dashboard" />)}
               />
@@ -172,6 +181,13 @@ function App() {
                 path="/orderList"
                 exact component={() => ((loggedInUser?.role === "admin")
                   ? <OrderList />
+                  : <Redirect to="/dashboard" />)}
+              />
+
+              <PrivateRoute
+                path="/unverifiedProviderList"
+                exact component={() => ((loggedInUser?.role === "admin")
+                  ? <UnverifiedProviders />
                   : <Redirect to="/dashboard" />)}
               />
 
