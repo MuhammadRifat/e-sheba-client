@@ -106,23 +106,23 @@
 //                         <img src={log} class="image" alt="" />
 //                     </div>
 
-//                     {/* <div class="panel right-panel">
-//                         <div class="content">
-//                             <h3>One of us ?</h3>
-//                             <p>
-//                                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum
-//                                 laboriosam ad deleniti.
-//                             </p>
-//                             <button class="btn transparent" id="sign-in-btn" onClick={() => setSign((prevSign) => !prevSign)}>
-//                                 Sign in
-//                             </button>
-//                         </div>
-//                         <img src={register} class="image" alt="" />
-//                     </div> */}
-//                 </div>
-//             </div>
-//         </>
-//     );
-// };
+                    {/* <div class="panel right-panel">
+                        <div class="content">
+                            <h3>One of us ?</h3>
+                            <p>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum
+                                laboriosam ad deleniti.
+                            </p>
+                            <button class="btn transparent" id="sign-in-btn" onClick={() => setSign((prevSign) => !prevSign)}>
+                                Sign in
+                            </button>
+                        </div>
+                        <img src={register} class="image" alt="" />
+                    </div> */}
+                </div>
+            </div>
+        </>
+    );
+};
 
-// export default TestLogin;
+export default TestLogin;

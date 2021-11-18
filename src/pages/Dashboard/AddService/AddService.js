@@ -74,7 +74,8 @@ const AddService = () => {
                     console.error(error)
                 });
             reset();
-        } else {
+        } 
+        else {
             alert('please upload  your service photo')
         }
     };
